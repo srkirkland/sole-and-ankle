@@ -36,6 +36,15 @@ const ShoeCard = ({
       <Wrapper>
         <ImageWrapper>
           <Image alt="" src={imageSrc} />
+          {variant === "on-sale" ? (
+            <VariantTag>
+              <SaleTag>Sale</SaleTag>
+            </VariantTag>
+          ) : variant === "new-release" ? (
+            <VariantTag>
+              <NewTag>Just Released</NewTag>
+            </VariantTag>
+          ) : null}
         </ImageWrapper>
         <Spacer size={12} />
         <Row>
@@ -61,6 +70,27 @@ const Link = styled.a`
   text-decoration: none;
   color: inherit;
   flex: 4 2 340px;
+`;
+
+const VariantTag = styled.span`
+  position: absolute;
+  width: max-content;
+  margin-top: 12px;
+  color: white;
+`;
+
+const SaleTag = styled.span`
+  margin-left: -40px;
+  background-color: #c5295d;
+  border-radius: 2px;
+  padding: 8px;
+`;
+
+const NewTag = styled.span`
+  margin-left: -112px;
+  background: #6868d9;
+  border-radius: 2px;
+  padding: 8px;
 `;
 
 const Wrapper = styled.article`
